@@ -1,0 +1,6 @@
+[[inputs.win_perf_counters]]
+  [[inputs.win_perf_counters.object]]
+    ObjectName = "Process"
+    Counters = ["% Processor Time","Handle Count","Private Bytes","Thread Count","Virtual Bytes","Working Set"]
+    Instances = ["javaw"]
+    Measurement = "win_proc"
