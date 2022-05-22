@@ -1,0 +1,12 @@
+        ruby{
+             code => "event.set('time_in_sec',event.get('@timestamp').to_i)"
+            }
+        ruby{
+             code => "event.set('randomNumber',(100000000 + (rand(99999999)).to_i))"
+             }
+        mutate{
+              add_field => {"time" => "%{time_in_sec}%{randomNumber}"}
+             }
+
+
+}
