@@ -1,0 +1,47 @@
+TELEGRAF source binary file location ->\\172.23.134.73\Temp Share\aiops
+a) copy telegraf-1.22.3.rar and
+	telegrf.conf ___________________________________________________________________________________________________________________________________
+	in D drive										      							|
+b) Right click on telegraf-1.22.3.rar and click extract and  telegraf-1.22.3.rar output___>telegraf.conf  (Replace this telegraf.conf file with one downloaded previously)
+				     |__>telegraf.exe
+c) If unable to find any tool to extract file please visit \\172.23.134.73\Temp Share\aiops\winrar571.zip
+d) After extractio open replace telegraf.conf file and make the following changes.
+	0)under [global tags]  application name="IIS-XXXXXXXXX"  use suitable appicaion name in plaxe of "X" of that server on which telegraf is intented to install
+			       IP="xx.xx.xx.xx" use ip of that server on which telegraf is intented to install
+e) open powershell as ADMINISTRATOR 
+			0) ps >cd D:\telegraf-1.22.3
+			1) ps >D:\telegraf-1.22.3\telegraf.exe --srvice install --config D:\telegraf-1.22.3\telegraf.conf
+			2) ps >D:\telegraf-1.22.3\telegraf.exe --service start
+			TYPE THE FULL FATH TO AVOID ERRORS
+
+
+FILEBEAT source binary file location ->\\172.23.134.73\Temp Share\aiops
+a) copy filebeat-7.16.3-windows-x86_64.zip and
+	filebeat.yml ___________________________________________________________________________________________________________________________________________________________________
+	in D drive																					|
+b) Right click on filebeat-7.16.3-windows-x86_64.zipand click extract after selection the D drive || output________>filebeat.yml  (Replace this telegraf.conf file with one downloaded previously)
+														|__>kibana(folder)	
+														|__......etc(few other files)
+														|__filebeat.exe
+c) by default window server provide a tool to extract .rar file (right click and click extract all)
+d) After extractio open replace telegraf.conf file and make the following changes.
+	0)under filebeat.inputs:  change path(in 5th line ) where logs are present. 
+e) open powershell as ADMINISTRATOR 
+			0) ps >cd D:\filebeat-7.16.3-windows-x86_64
+			1) ps >D:\filebeat-7.16.3-windows-x86_64.exe\install-service-filebeat.ps1  hit enter
+				if (successfull):
+					 jump to 2nd step
+				else(OS will throw error for executio policy to bypass this fire following command in same folder from powersell as an administratior):
+					 ps >set-ExecutionPolicy ByPass
+					 ps >shell will prompted for conformation type "y" and hit enter and again fire command from 1st step
+			2) ps >start-service filebeat
+			TYPE THE FULL FATH TO AVOID ERRORS
+
+
+
+
+
+
+
+
+
